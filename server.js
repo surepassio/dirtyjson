@@ -5,9 +5,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-app.use(bodyParser.text());
-app.use(bodyParser.json({ limit: '50mb' }));
-app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+app.use(bodyParser.text({ limit: '50mb' }));
 
 PORT = 12345
 
