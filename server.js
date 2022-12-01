@@ -4,13 +4,17 @@ const bodyParser = require('body-parser');
 
 
 const app = express();
+
 app.use(bodyParser.text());
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+
 PORT = 12345
 
-function fix_json(input_string){
-    const r = dJSON.parse(input_string)
-    //return JSON.stringify(r);
-    return r
+function fix_json(input_string) {
+  const r = dJSON.parse(input_string)
+  //return JSON.stringify(r);
+  return r
 }
 
 app.post('/', (req, res) => {
